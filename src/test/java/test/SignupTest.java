@@ -38,4 +38,15 @@ public class SignupTest extends BaseTest {
         Assert.assertTrue(lp.errormessagedisplayed());
 
     }
+
+    @Test
+    public void SignupWithexistingemailShouldPass() {
+        SignupPage lp = pg.goTo(Homepage.class)
+                .clickLoginBtn()
+                .fillUsername("Mahade Ahmed")
+                .fillemail("mahadeahmed32@gmail.com")
+                .clicksignupBtn6();
+        Assert.assertTrue(lp.emailalreadyexistserror());
+
+    }
 }

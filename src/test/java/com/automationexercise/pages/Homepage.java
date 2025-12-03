@@ -2,6 +2,7 @@ package com.automationexercise.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import util.BatchThirteen;
 
 public class Homepage extends BasePage{
     public Homepage(WebDriver driver) {
@@ -14,6 +15,12 @@ public class Homepage extends BasePage{
         clickElement(By.xpath("//a[normalize-space()='Signup / Login']"));
         //BatchThirteen.waitForDomStable();
         return goTo(SignupPage.class);
+    }
+
+    public ContactUS clickContactUsBtn(){
+        clickElement(By.cssSelector("a[href='/contact_us']"));
+        BatchThirteen.waitForDomStable();
+        return goTo(ContactUS.class);
     }
 
 

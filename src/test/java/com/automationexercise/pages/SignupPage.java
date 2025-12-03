@@ -22,6 +22,11 @@ public class SignupPage extends BasePage{
         //BatchThirteen.waitForDomStable();
         return goTo(Enteraccount.class);
     }
+    public SignupPage clicksignupBtn6() {
+        clickElement(By.cssSelector("button[data-qa='signup-button']"));
+        BatchThirteen.waitForDomStable();
+        return this;
+    }
     public boolean isTitleeshow2() {
         return getWebElementSize(By.cssSelector("div[class='signup-form'] h2")) > 0;
     }
@@ -51,5 +56,8 @@ public class SignupPage extends BasePage{
         return getWebElementSize(By.xpath("//p[normalize-space()='Your email or password is incorrect!']")) > 0;
     }
 
+    public boolean emailalreadyexistserror(){
+        return getWebElementSize(By.xpath("//p[normalize-space()='Email Address already exist!']")) > 0;
+    }
 
 }
