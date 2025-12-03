@@ -19,5 +19,21 @@ public class HomepageTest extends BaseTest{
         Assert.assertTrue(lp.isTitleeshow2());
 
     }
-
+    @Test
+    public void scrollDownPageshouldsucess() {
+        Homepage lp = pg.goTo(Homepage.class)
+                .scrollDownToFooter()
+                .inputsubscribeemail("mahadeahmed17@gmail.com")
+                .clicksubscribeBtn();
+        Assert.assertTrue(lp.succefulsubcription());
+    }
+    @Test
+    public void scrollupPageshouldsucess() {
+        Homepage lp = pg.goTo(Homepage.class)
+                .scrollDownToFooter()
+                .inputsubscribeemail("mahadeahmed17@gmail.com")
+                .clicksubscribeBtn()
+                .scrollup();
+        Assert.assertTrue(lp.isTitleshow());
+    }
 }

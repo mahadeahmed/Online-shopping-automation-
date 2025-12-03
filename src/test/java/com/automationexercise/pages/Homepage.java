@@ -1,7 +1,9 @@
 package com.automationexercise.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import util.BatchThirteen;
 
 public class Homepage extends BasePage{
@@ -29,5 +31,30 @@ public class Homepage extends BasePage{
         return goTo(TestCase.class);
     }
 
+    public Homepage scrollDownToFooter(){
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.END).perform();
+        BatchThirteen.waitForDomStable();
+        return this;
+    }
+    public Homepage inputsubscribeemail(String email){
+        getWebElement(By.cssSelector("#susbscribe_email")).sendKeys(email);
+        BatchThirteen.waitForDomStable();
+        return this;
+    }
+    public Homepage clicksubscribeBtn(){
+        clickElement(By.xpath("//i[@class='fa fa-arrow-circle-o-right']"));
+        BatchThirteen.waitForDomStable();
+        return this;
+    }
+    public boolean succefulsubcription() {
+        return getWebElementSize(By.xpath("//div[@class='alert-success alert']")) > 0;
+    }
+    public Homepage scrollup(){
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.HOME).perform();
+        BatchThirteen.waitForDomStable();
+        return this;
+    }
 
 }
