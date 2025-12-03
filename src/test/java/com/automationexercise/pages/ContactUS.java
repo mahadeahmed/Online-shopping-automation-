@@ -10,8 +10,8 @@ public class ContactUS extends BasePage{
 
     }
 
-    public ContactUS fillupname(String username){
-        getWebElement(By.cssSelector("a[href='/contact_us']")).sendKeys(username);
+    public ContactUS fillname(String name){
+        getWebElement(By.cssSelector("input[placeholder='Name']")).sendKeys(name);
         BatchThirteen.waitForDomStable();
         return this;
     }
@@ -44,6 +44,11 @@ public class ContactUS extends BasePage{
         driver.switchTo().alert().accept();
         BatchThirteen.waitForDomStable();
         return this;
+    }
+    public Homepage clickhomeBtn() {
+        clickElement(By.cssSelector(".btn.btn-success"));
+        BatchThirteen.waitForDomStable();
+        return goTo(Homepage.class);
     }
     public boolean getsuccessmessage(){
         return getWebElementSize(By.cssSelector(".status.alert.alert-success")) > 0;

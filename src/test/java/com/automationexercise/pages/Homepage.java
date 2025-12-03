@@ -23,5 +23,11 @@ public class Homepage extends BasePage{
         return goTo(ContactUS.class);
     }
 
+    public TestCase clickTestCaseBtn(){
+        clickElement(By.cssSelector("a[href='/test_cases']"));
+        BatchThirteen.waitForDomStable();
+        return goTo(TestCase.class);
+    }
+
 
 }
